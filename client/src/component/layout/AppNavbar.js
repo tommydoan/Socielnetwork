@@ -31,7 +31,7 @@ class AppNavbar extends Component {
     return (
         <Navbar color="dark" dark expand="sm">
           <NavbarBrand href="#"><i className="fas fa-code"></i> 
-            <Link className="btn btn-white btn-sm" to="/"><h2>Dev Connector</h2></Link></NavbarBrand>
+            <Link className="btn btn-white btn-sm" to="/"><h4>Dev Connector</h4></Link></NavbarBrand>
           <NavbarToggler onClick={this.toggle}/>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto">
