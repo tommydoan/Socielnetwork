@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux';
 import {getIndividualPost, addComment, deleteComment} from '../../action/postAction';
-import {Button} from 'reactstrap';
+import {Button, Alert} from 'reactstrap';
 import Moment from 'react-moment'
 import {Link} from 'react-router-dom';
 class IndividualPost extends Component {
@@ -20,7 +20,8 @@ class IndividualPost extends Component {
         const newComment={
             text
         }
-        this.props.addComment(_id, newComment)
+        this.props.addComment(_id, newComment);
+        this.setState({text:""});
     }
     onClick=(_id)=>{
         const id=this.props.post._id;
@@ -30,7 +31,7 @@ class IndividualPost extends Component {
         this.setState({[e.target.name]:e.target.value})
     }
   render() {
-      const {post, comments, user}=this.props;
+      const {post, comments, user, alert}=this.props;
       //const {likes}=this.props.post;
       const {text}=this.state;
     if(comments){
@@ -57,9 +58,13 @@ class IndividualPost extends Component {
                       </div> 
                     </div>
                     <section style={{marginTop:"0.5rem"}} className="container">
-                        <h4 className="muted">
-                            Leave a Comment
-                        </h4>
+                        {alert?(
+                          <Alert color="primary">{alert}</Alert>
+                        ):(
+                          <h4 className="muted">
+                          Leave a Comment
+                      </h4>
+                        )}
                         <div className="post-form">
                             <div className="bg-primary p">
                             <h4>Say Something...</h4>
@@ -115,6 +120,7 @@ const mapStateToProps=state=>({
     post:state.post.post,
     posts:state.post.posts,
     user:state.auth.user,
-    comments:state.post.post.comments
+    comments:state.post.post.comments,
+    alert:state.error.alert
 })
 export default connect(mapStateToProps, {getIndividualPost, addComment, deleteComment}) (IndividualPost);

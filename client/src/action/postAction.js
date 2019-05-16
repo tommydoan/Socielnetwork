@@ -101,6 +101,8 @@ export const addComment=(id, comment)=>async (dispatch, getState)=>{
             type:ADD_COMMENT,
             payload:res.data
         })
+        dispatch(setAlert("Comment Created "));
+        setTimeout(()=>dispatch({type:CLEAR_ALERT}),5000);
     } catch (error) {
         dispatch(returnError(error.response.data, error.response.status));
         dispatch({
@@ -111,7 +113,7 @@ export const addComment=(id, comment)=>async (dispatch, getState)=>{
 //delete post
 export const deleteComment=(idPost, idComment)=>async (dispatch, getState)=>{
     try {
-        const res=await axios.delete(`/api/posts/comments/${idPost}/${idComment}`, tokenconfig(getState));
+        await axios.delete(`/api/posts/comments/${idPost}/${idComment}`, tokenconfig(getState));
         dispatch({
             type:DELETE_COMMENT,
             payload:idComment
