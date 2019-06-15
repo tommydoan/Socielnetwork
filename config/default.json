@@ -1,7 +1,6 @@
 {
-    "mongoURI":"mongodb+srv://tommyDoan:tommy123@devconnector-lmx6k.mongodb.net/test?retryWrites=true",
-    "jwtSecret":"X_myjwtSecret",
-    "githubClientId":"e4989cfa15fbf9ce4b47",
-    "githubClientSecret":"6bf4bd162917873bd210203f1bbb4f10fc831424"
-    
+  "mongoURI": "mongodb+srv://tommydoan144:Thanhtung123!@devconnector-lmx6k.mongodb.net/test?retryWrites=true",
+  "jwtSecret": "X_myjwtSecret",
+  "githubClientId": "e4989cfa15fbf9ce4b47",
+  "githubClientSecret": "6bf4bd162917873bd210203f1bbb4f10fc831424"
 }

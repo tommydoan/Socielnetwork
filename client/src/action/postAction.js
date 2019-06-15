@@ -24,7 +24,7 @@ export const postApost=(post)=>async (dispatch, getState)=>{
             type:ADD_POST,
             payload:res.data
     })
-        dispatch(setAlert('Post Successed ! '));
+        dispatch(setAlert('Post Succeed ! '));
         setTimeout(()=>dispatch({type:CLEAR_ALERT}),5000);
     } catch (error) {
         dispatch(returnError(error.response.data, error.response.status));
